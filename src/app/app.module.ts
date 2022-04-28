@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { CreateComponent } from './heroes/components/create/create.component';
 import { ReadDeleteComponent } from './heroes/components/read-delete/read-delete.component';
 import { heroReducer } from "./heroes/reducers/hero-reducer";
-
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 
 @NgModule({
@@ -20,7 +20,8 @@ import { heroReducer } from "./heroes/reducers/hero-reducer";
     AppRoutingModule,
     StoreModule.forRoot(
       { heroes: heroReducer }
-    )
+    ),
+    StoreDevtoolsModule.instrument()
   ],
   providers: [],
   bootstrap: [AppComponent]
