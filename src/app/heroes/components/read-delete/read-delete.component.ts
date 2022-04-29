@@ -25,4 +25,7 @@ export class ReadDeleteComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  trackBy(index: number, hero: Hero) {
+    return hero?.id ?? undefined;
+  }
 }

@@ -16,7 +16,7 @@ export class CreateComponent implements OnInit {
   }
 
   addHero(name: string, description: string) {
-    this.store.dispatch(new AddHero({name: name, description: description}))
+    this.store.dispatch(new AddHero({id: -1, name: name, description: description}))
   }
 
 }

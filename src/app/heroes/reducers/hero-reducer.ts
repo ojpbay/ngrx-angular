@@ -3,6 +3,7 @@ import {ADD_HERO, AddHero, REMOVE_HERO, RemoveHero} from "../actions/hero-action
 import { Action, INIT } from '@ngrx/store';
 
 const initialState : Hero[] = [{
+  id: 1,
   name: "My Initial Hero",
   description: "This is my Initial Hero"
 }]

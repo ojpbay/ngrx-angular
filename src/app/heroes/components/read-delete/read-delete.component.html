@@ -1,10 +1,10 @@
-<div class="right" *ngIf="heroes">
+<div *ngIf="heroes">
 
   <h3>Heroes</h3>
-  <ul>
-    <li *ngFor="let hero of heroes | async; let i = index">
+  <ul id="hero-list">
+    <li *ngFor="let hero of heroes | async; let i = index; trackBy: trackBy">
     {{ hero.name }}: {{ hero.description }}
-      <button (click)="deleteHero(i)">delete</button>
+      <button (click)="deleteHero(i)" mat-flat-button color="warn">delete</button>
     </li>
   </ul>
 

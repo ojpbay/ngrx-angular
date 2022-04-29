@@ -1,5 +1,5 @@
-<div>
-  <input placeholder="name" #name />
-  <input placeholder="description" #description />
-  <button (click)="addHero(name.value, description.value)">Add Hero</button>
+<div class="container">
+  <input matInput placeholder="name" #name />
+  <input matInput placeholder="description" #description />
+  <button (click)="addHero(name.value, description.value)" mat-flat-button color="primary">Add Hero</button>
 </div>

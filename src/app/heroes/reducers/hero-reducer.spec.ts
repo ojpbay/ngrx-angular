@@ -7,15 +7,15 @@ describe('HeroReducer', () => {
   let initialState: Hero[]
   beforeEach(() => {
     initialState = [
-      {name: 'FirstHero', description: 'This is the first hero' },
-      {name: 'SecondHero', description: 'This is the second hero' },
-      {name: 'ThirdHero', description: 'This is the third hero' }
+      {id: 1, name: 'FirstHero', description: 'This is the first hero' },
+      {id: 2, name: 'SecondHero', description: 'This is the second hero' },
+      {id: 3, name: 'ThirdHero', description: 'This is the third hero' }
     ]
   })
 
   it('called with AddHero action should return a state with the added hero', () =>
     {
-      const addedHero = {name: 'AddedHero', description: 'This is the added hero' }
+      const addedHero = {id: 4, name: 'AddedHero', description: 'This is the added hero' }
       const expectedState = [...initialState, addedHero]
       expect(heroReducer(initialState, new AddHero(addedHero)))
         .toEqual(expectedState)
@@ -26,8 +26,8 @@ describe('HeroReducer', () => {
     {
       const indexOfTheHeroToBeRemoved = 1
       const expectedState = [
-        {name: 'FirstHero', description: 'This is the first hero' },
-        {name: 'ThirdHero', description: 'This is the third hero' }
+        {id: 1, name: 'FirstHero', description: 'This is the first hero' },
+        {id: 3, name: 'ThirdHero', description: 'This is the third hero' }
       ]
 
       expect(heroReducer(initialState, new RemoveHero(indexOfTheHeroToBeRemoved))).toEqual(expectedState)

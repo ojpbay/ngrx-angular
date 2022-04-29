@@ -7,6 +7,9 @@ import { CreateComponent } from './heroes/components/create/create.component';
 import { ReadDeleteComponent } from './heroes/components/read-delete/read-delete.component';
 import { heroReducer } from "./heroes/reducers/hero-reducer";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     StoreModule.forRoot(
       { heroes: heroReducer }
     ),
-    StoreDevtoolsModule.instrument()
+    StoreDevtoolsModule.instrument(),
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
