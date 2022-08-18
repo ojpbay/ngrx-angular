@@ -1,5 +1,27 @@
 :host {
-  ul#hero-list li {
+  .hero-card {
     margin: 0.5rem;
+    padding: 0;
+    max-width: 450px;
+  }
+
+  .mat-card-header{
+    background-color:gold ;
+    padding:5px ;
+  }
+
+   .mat-card{
+    padding:0 ;
+  }
+
+  .mat-card-content{
+    padding:20px ;
+  }
+
+  .header-image {
+    background-image: url('../../assets/hero-small.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
   }
 }
