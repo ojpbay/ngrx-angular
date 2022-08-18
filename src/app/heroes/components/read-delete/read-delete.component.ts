@@ -1,29 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import {Hero} from "../../models/hero";
-import {Observable, of} from "rxjs";
-import {Store} from "@ngrx/store";
-import {AppState} from "../../../app.state"
-import {RemoveHero} from "../../actions/hero-action";
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { AppState, HeroSelectors } from '../../../app.state';
+import { RemoveHero } from '../../actions/hero-action';
+import { Hero } from '../../models/hero';
 
 @Component({
   selector: 'app-read-delete',
   templateUrl: './read-delete.component.html',
-  styleUrls: ['./read-delete.component.scss']
+  styleUrls: ['./read-delete.component.scss'],
 })
 export class ReadDeleteComponent implements OnInit {
-
-  heroes: Observable<Hero[]>
+  heroes: Observable<Hero[]>;
+  heroCount: Observable<number>;
 
   constructor(private store: Store<AppState>) {
-    this.heroes = store.select("heroes")
+    this.heroes = store.select('heroes');
+    this.heroCount = this.store.select(HeroSelectors.selectHeroesCount());
   }
 
   deleteHero(indexOfHeroToBeRemoved: number) {
-    this.store.dispatch(new RemoveHero(indexOfHeroToBeRemoved))
+    this.store.dispatch(new RemoveHero(indexOfHeroToBeRemoved));
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   trackBy(index: number, hero: Hero) {
     return hero?.id ?? undefined;
