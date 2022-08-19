@@ -13,10 +13,13 @@ import { Hero } from '../../models/hero';
 export class ReadDeleteComponent implements OnInit {
   heroes$: Observable<Hero[]>;
   heroCount$: Observable<number>;
+  test$: Observable<any>;
 
   constructor(private readonly store: Store<AppState>) {
     this.heroes$ = this.store.select(HeroSelectors.selectHeroes());
     this.heroCount$ = this.store.select(HeroSelectors.selectHeroesCount());
+
+    this.test$ = this.store.select('heroes')
   }
 
   ngOnInit(): void {
