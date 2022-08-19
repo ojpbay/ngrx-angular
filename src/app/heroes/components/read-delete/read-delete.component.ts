@@ -11,19 +11,21 @@ import { Hero } from '../../models/hero';
   styleUrls: ['./read-delete.component.scss'],
 })
 export class ReadDeleteComponent implements OnInit {
-  heroes: Observable<Hero[]>;
-  heroCount: Observable<number>;
+  heroes$: Observable<Hero[]>;
+  heroCount$: Observable<number>;
 
-  constructor(private store: Store<AppState>) {
-    this.heroes = store.select('heroes');
-    this.heroCount = this.store.select(HeroSelectors.selectHeroesCount());
+  constructor(private readonly store: Store<AppState>) {
+    this.heroes$ = this.store.select(HeroSelectors.selectHeroes());
+    this.heroCount$ = this.store.select(HeroSelectors.selectHeroesCount());
+  }
+
+  ngOnInit(): void {
+
   }
 
   deleteHero(indexOfHeroToBeRemoved: number) {
     this.store.dispatch(new RemoveHero(indexOfHeroToBeRemoved));
   }
-
-  ngOnInit(): void {}
 
   trackBy(index: number, hero: Hero) {
     return hero?.id ?? undefined;

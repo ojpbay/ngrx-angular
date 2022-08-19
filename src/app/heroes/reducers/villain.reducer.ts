@@ -1,14 +1,15 @@
-import {Hero} from "../models/hero";
+import {Villain} from "../models/villain";
 import {ADD_HERO, AddHero, REMOVE_HERO, RemoveHero} from "../actions/hero-action";
 import { Action, INIT } from '@ngrx/store';
 
-const initialState : Hero[] = [{
+const initialState : Villain[] = [{
   id: 1,
-  name: "Danger Mouse",
-  description: "He's the greatest, he's fantastic..."
+  name: "Doctor Claw",
+  description: "Bad guy from Inspector Gadget",
+  lair: "Unknown"
 }]
 
-export function heroReducer (state: Hero[] = initialState, action: Action) {
+export function heroReducer (state: Villain[] = initialState, action: Action) {
   switch(action.type) {
     case ADD_HERO:
       return [...state, (action as AddHero).heroToBeAdded]  // add a hero

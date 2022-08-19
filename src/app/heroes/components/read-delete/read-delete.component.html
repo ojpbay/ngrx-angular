@@ -1,7 +1,7 @@
-<div *ngIf="heroes">
+<div *ngIf="(heroes$ | async) as heroes">
 
-  <h3>Heroes {{heroCount | async}}</h3>
-  <mat-card class="hero-card" *ngFor="let hero of heroes | async; let i = index; trackBy: trackBy">
+  <h3>Heroes {{heroCount$ | async}}</h3>
+  <mat-card class="hero-card" *ngFor="let hero of heroes; let i = index; trackBy: trackBy">
     <mat-card-header>
       <div mat-card-avatar class="header-image"></div>
       <mat-card-title>{{ hero.name }}</mat-card-title>
